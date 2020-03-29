@@ -30,4 +30,9 @@ describe('Input', () => {
     wrapper.setData({ cardNumber })
     expect((wrapper.vm as any).cardBrand).toBe('Diners')
   })
+  test('is JCB', () => {
+    const cardNumber = '3566002020360505'
+    wrapper.setData({ cardNumber })
+    expect((wrapper.vm as any).cardBrand).toBe('JCB')
+  })
 })
