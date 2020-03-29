@@ -31,6 +31,7 @@ export default Vue.extend({
       const isDiners = /^30[0-5]|^3095|^36|^38|^39/;
       const isJCB = /^352[8-9]|^35[3-8][0-9]/;
       const isVisa = /^4/;
+      const isMaster = /^5/;
       if (isAmex.test(this.cardNumber)) {
         return 'Amex';
       }
@@ -42,6 +43,9 @@ export default Vue.extend({
       }
       if (isVisa.test(this.cardNumber)) {
         return 'Visa';
+      }
+      if (isMaster.test(this.cardNumber)) {
+        return 'Master';
       }
       return '';
     },
