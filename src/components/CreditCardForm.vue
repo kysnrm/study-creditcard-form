@@ -3,7 +3,6 @@
     <div>{{ cardNumber }}</div>
     <input type="text" v-model="cardNumber">
     <div>{{ cardBrand }}</div>
-    <div>{{ isFilled }}</div>
     <div>{{ errorMessage }}</div>
   </div>
 </template>
@@ -24,6 +23,9 @@ export default Vue.extend({
     errorMessage(): string {
       if (!this.isNumber) {
         return '数値を入力してください';
+      }
+      if (!this.luhnAlgorithm) {
+        return '有効なカード番号ではありません';
       }
       return '';
     },
@@ -63,6 +65,32 @@ export default Vue.extend({
         default:
           return this.cardNumber.length === 16;
       }
+    },
+    luhnAlgorithm(): boolean {
+      if (!this.isFilled) {
+        return true;
+      }
+      let sum = 0;
+      const reversed = this.cardNumber.split('').reverse();
+      const doubled = reversed.map((x, index) => {
+        if (index % 2 === 1) {
+          return Number(x) * 2;
+        }
+        return Number(x);
+      });
+      const added = doubled.map((x) => {
+        if (x > 9) {
+          return x - 9;
+        }
+        return x;
+      });
+      for (let i = 0; i < added.length; i += 1) {
+        sum += added[i];
+      }
+      if (sum % 10 === 0) {
+        return true;
+      }
+      return false;
     },
   },
 });
