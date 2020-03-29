@@ -40,4 +40,9 @@ describe('Input', () => {
     wrapper.setData({ cardNumber })
     expect((wrapper.vm as any).cardBrand).toBe('Master')
   })
+  test('is Discover', () => {
+    const cardNumber = '6011111111111117'
+    wrapper.setData({ cardNumber })
+    expect((wrapper.vm as any).cardBrand).toBe('Discover')
+  })
 })
