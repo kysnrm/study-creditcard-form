@@ -15,5 +15,11 @@ describe('Input', () => {
     const wrapper = mount(CreditCardForm);
     wrapper.setData({ cardNumber })
     expect((wrapper.vm as any).errorMessage).toBe('')
+  }),
+  test('is Visa', () => {
+    const cardNumber = '4242424242424242'
+    const wrapper = mount(CreditCardForm);
+    wrapper.setData({ cardNumber })
+    expect((wrapper.vm as any).cardBrand).toBe('Visa')
   })
 })

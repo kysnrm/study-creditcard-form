@@ -13,7 +13,7 @@ import Vue from 'vue';
 export default Vue.extend({
   data() {
     return {
-      cardNumber: '0',
+      cardNumber: '',
     };
   },
   computed: {
@@ -24,6 +24,9 @@ export default Vue.extend({
       if (!this.isNumber) {
         return '数値を入力してください';
       }
+      return '';
+    },
+    cardBrand(): string {
       return '';
     },
   },
