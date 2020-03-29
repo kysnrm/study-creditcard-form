@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <credit-card-form />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import CreditCardForm from './components/CreditCardForm.vue';
 
 export default Vue.extend({
   name: 'App',
   components: {
-    HelloWorld,
+    CreditCardForm,
   },
 });
 </script>
