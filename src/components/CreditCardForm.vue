@@ -3,6 +3,7 @@
     <div>{{ cardNumber }}</div>
     <input type="text" v-model="cardNumber">
     <div>{{ cardBrand }}</div>
+    <div>{{ isFilled }}</div>
     <div>{{ errorMessage }}</div>
   </div>
 </template>
@@ -52,6 +53,16 @@ export default Vue.extend({
         return 'Discover';
       }
       return '';
+    },
+    isFilled(): boolean {
+      switch (this.cardBrand) {
+        case 'Amex':
+          return this.cardNumber.length === 15;
+        case 'Diners':
+          return this.cardNumber.length === 14;
+        default:
+          return this.cardNumber.length === 16;
+      }
     },
   },
 });
