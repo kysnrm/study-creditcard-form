@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div>{{ creditCardNumber }}</div>
-    <input type="text" v-model="creditCardNumber">
+    <div>{{ cardNumber }}</div>
+    <input type="text" v-model="cardNumber">
+    <div>Input is Number? {{ isNumber }}</div>
   </div>
 </template>
 
@@ -11,8 +12,13 @@ import Vue from 'vue';
 export default Vue.extend({
   data() {
     return {
-      creditCardNumber: '0',
+      cardNumber: '0',
     };
+  },
+  computed: {
+    isNumber(): boolean {
+      return /^[0-9]*$/.test(this.cardNumber);
+    },
   },
 });
 </script>
