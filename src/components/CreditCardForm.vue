@@ -1,5 +1,7 @@
 <template>
   <div>
+    <div>{{ creditCardNumber }}</div>
+    <input type="text" v-model="creditCardNumber">
   </div>
 </template>
 
@@ -7,7 +9,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  data: () => {
+  data() {
     return {
       creditCardNumber: '0',
     };
