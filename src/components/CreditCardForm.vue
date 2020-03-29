@@ -2,7 +2,7 @@
   <div>
     <div>{{ cardNumber }}</div>
     <input type="text" v-model="cardNumber">
-    <div>Input is Number? {{ isNumber }}</div>
+    <div>{{ cardBrand }}</div>
     <div>{{ errorMessage }}</div>
   </div>
 </template>
@@ -27,6 +27,10 @@ export default Vue.extend({
       return '';
     },
     cardBrand(): string {
+      const isVisa = /^4/;
+      if (isVisa.test(this.cardNumber)) {
+        return 'Visa';
+      }
       return '';
     },
   },
