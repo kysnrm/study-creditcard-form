@@ -27,10 +27,14 @@ export default Vue.extend({
       return '';
     },
     cardBrand(): string {
-      const isAmex = /^37|34/;
+      const isAmex = /^37|^34/;
+      const isDiners = /^30[0-5]|^3095|^36|^38|^39/;
       const isVisa = /^4/;
       if (isAmex.test(this.cardNumber)) {
         return 'Amex';
+      }
+      if (isDiners.test(this.cardNumber)) {
+        return 'Diners';
       }
       if (isVisa.test(this.cardNumber)) {
         return 'Visa';
